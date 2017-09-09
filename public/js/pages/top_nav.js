@@ -37,6 +37,7 @@ class TopNav extends React.Component {
         	</header>
         )
     }
+    
     getAddNewLink() {
         let {user_detail} = this.props;
         if(user_detail && user_detail.user_id) {
