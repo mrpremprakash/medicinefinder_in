@@ -41,6 +41,7 @@
         <!-- Template CSS -->
         <link href="css/style.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css" />
         <!-- Google Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,800&amp;subsetting=all' rel='stylesheet' type='text/css'>
@@ -54,7 +55,8 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/jquery.imgareaselect.pack.js"></script>
-
+        <script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ldYnc5GNWesH52Uee3-7uKP0mX6OBAs"></script>
 
         <style>
         .ui-autocomplete {
@@ -101,9 +103,9 @@
                 items: $.parseJSON(JSON.stringify(<?php echo json_encode($records) ?>))
             };
         </script>
-        <script src="js/bundle.js"></script>
         <script src="js/dropzone.js"></script>
         <script src="js/common.js"></script>
+        <script src="js/bundle.js"></script>
         <script>
         var windowObj = $(window);
         // toggleNavClass(windowObj.scrollTop());

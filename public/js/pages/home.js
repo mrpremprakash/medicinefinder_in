@@ -1,37 +1,152 @@
 import React from 'react';
 import Footer from './footer';
-class Intro extends React.Component {
+
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import BusinessList from '../components/business_list';
+import {searchBusiness} from '../actions/actions';
+
+class Home extends React.Component {
     render() {
         return (
             <span>
-                <section id="intro" className="section">
+                <section id="home" className="section">
             		<div className="container">
-            			<div className="row">
+            			<div className="row" style={{backgroundColor: '#f4f4f2'}}>
 
-            				<div className="col-lg-6 col-md-6">
-            					<div className="main-point">
-            						<i className="fa fa-map-marker"></i>
-            						<h4>Easiest way to find nearest drug stores</h4>
-            						<p>Simply search medicine name and we will go through thousands of medical store databases and find that medicine for you instantly.</p>
-            					</div>
-            					<div className="main-point">
-            						<i className="fa">
-            							<img src="img/icon_route.jpg" width="80px" />
-            						</i>
-            						<h4>Map Based</h4>
-            						<p>See the exact path and distance of all the stores on the map from your location and route to reach there.</p>
-            					</div>
-
-            					<div className="main-point main-point-last">
-            						<i className="fa fa-male"></i>
-            						<h4>User Oriented</h4>
-            						<p>Manage all your medical data and easily share it with doctors, friends and family, via email, Facebook, or Twitter. </p>
-            					</div>
+            				<div className="col-lg-4 col-md-4 map-canvas">
+                                <div className="mCustomScrollbar items-list " style={{height: '500px'}}>
+                                    <div className="inner">
+                                        <header>
+                                            <h3>Results</h3>
+                                        </header>
+                                        <ul className="results list">
+                                            <li>
+                                                <div className="item">
+                                                    <a href="#" className="image loaded">
+                                                        <div className="inner">
+                                                            <div className="item-specific"></div>
+                                                            <img src="images/card-image1.jpg" alt="" />
+                                                        </div>
+                                                    </a>
+                                                    <div className="wrapper">
+                                                        <a href="#" id="12">
+                                                            <h3>Jetstream</h3>
+                                                        </a>
+                                                        <figure>1882 Trainer Avenue</figure>
+                                                        <div className="info">
+                                                            <div className="type">
+                                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
+                                                                <span>Medical Store</span>
+                                                            </div>
+                                                            <div className="rating" data-rating="4">
+                                                                <span className="stars">
+                                                                    <i className="fa fa-star s1 active" data-score="1"></i>
+                                                                    <i className="fa fa-star s2 active" data-score="2"></i>
+                                                                    <i className="fa fa-star s3 active" data-score="3"></i>
+                                                                    <i className="fa fa-star s4 active" data-score="4"></i>
+                                                                    <i className="fa fa-star s5" data-score="5"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="item">
+                                                    <a href="#" className="image loaded">
+                                                        <div className="inner">
+                                                            <div className="item-specific"></div>
+                                                            <img src="images/card-image1.jpg" alt="" />
+                                                        </div>
+                                                    </a>
+                                                    <div className="wrapper">
+                                                        <a href="#" id="12">
+                                                            <h3>Jetstream</h3>
+                                                        </a>
+                                                        <figure>1882 Trainer Avenue</figure>
+                                                        <div className="info">
+                                                            <div className="type">
+                                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
+                                                                <span>Medical Store</span>
+                                                            </div>
+                                                            <div className="rating" data-rating="4">
+                                                                <span className="stars">
+                                                                    <i className="fa fa-star s1 active" data-score="1"></i>
+                                                                    <i className="fa fa-star s2 active" data-score="2"></i>
+                                                                    <i className="fa fa-star s3 active" data-score="3"></i>
+                                                                    <i className="fa fa-star s4 active" data-score="4"></i>
+                                                                    <i className="fa fa-star s5" data-score="5"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div className="item">
+                                                    <a href="#" className="image loaded">
+                                                        <div className="inner">
+                                                            <div className="item-specific"></div>
+                                                            <img src="images/card-image1.jpg" alt="" />
+                                                        </div>
+                                                    </a>
+                                                    <div className="wrapper">
+                                                        <a href="#" id="12">
+                                                            <h3>Jetstream</h3>
+                                                        </a>
+                                                        <figure>1882 Trainer Avenue</figure>
+                                                        <div className="info">
+                                                            <div className="type">
+                                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
+                                                                <span>Medical Store</span>
+                                                            </div>
+                                                            <div className="rating" data-rating="4">
+                                                                <span className="stars">
+                                                                    <i className="fa fa-star s1 active" data-score="1"></i>
+                                                                    <i className="fa fa-star s2 active" data-score="2"></i>
+                                                                    <i className="fa fa-star s3 active" data-score="3"></i>
+                                                                    <i className="fa fa-star s4 active" data-score="4"></i>
+                                                                    <i className="fa fa-star s5" data-score="5"></i>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
             				</div>
 
 
-            				<div className="col-lg-6 col-md-6">
-            					<img src="img/devices.jpg" className="img-responsive" alt="" title="" />
+            				<div className="col-lg-8 col-md-8 map">
+
+                                <div className="search-bar">
+                                    <div className="row">
+                                        <div className="col-lg-12 col-md-12">
+                                            <div className="form-group">
+                                                <input type="text" className="form-control" id="keyword" ref="keyword" placeholder="Enter Keyword"
+                                                    onKeyPress={(e) => {this.searchOnKeypress.call(this, e)}}/>
+                                            </div>
+                                        </div>
+                                        {/* <div className="col-lg-6 col-md-6">
+                                            <div className="form-group">
+                                                <div className="input-group location">
+                                                    <input type="text" className="form-control" id="location" placeholder="Enter Location" autoComplete="off"/>
+                                                    <span className="input-group-addon">
+                                                        <i className="fa fa-map-marker geolocation" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Find my position"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="form-group">
+                                                <button type="submit" className="btn btn-default"><i className="fa fa-search"></i></button>
+                                            </div>
+                                        </div> */}
+                                    </div>
+                                </div>
+
+            					<div id="map" style={{height: '500px', width: '100%'}}></div>
             				</div>
 
             			</div>
@@ -102,9 +217,47 @@ class Intro extends React.Component {
             </span>
         );
     }
+    searchOnKeypress(event) {
+        if(event.which == 13) {
+            this.findStore();
+            $(".ui-menu-item").hide();
+        }
+    }
+    findStore() {
+        let searchTerm = this.refs.keyword.value;
+        this.props.dispatch(searchBusiness(searchTerm));
+    }
     componentDidMount() {
-        $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+        $("#header").find('.navbar').addClass('navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled');
+        $(".mCustomScrollbar").mCustomScrollbar({
+            theme:"dark"
+        });
+        var items = this.props.business_list;
+        initMap(items);
+        var data = items.map(function(item) {
+            return {
+                value: item.address,
+                id: item.id
+            }
+        });
+
+        $( '#keyword').autocomplete({
+            source: data,
+            minLength: 0,
+            select: function( event, ui ) {
+                console.log( ui.item ?
+                "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+                "Nothing selected, input was " + this.value );
+            }
+        });
     }
 }
 
-export default Intro;
+const mapStateToProps = (state) => {
+    return {
+        items: state.get('items'),
+        business_list: state.get('business_list')
+    }
+}
+const ConnectedHome = withRouter(connect(mapStateToProps)(Home));
+export default ConnectedHome;
