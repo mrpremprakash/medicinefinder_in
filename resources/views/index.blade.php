@@ -107,16 +107,16 @@
         <script src="js/common.js"></script>
         <script src="js/bundle.js"></script>
         <script>
-        var windowObj = $(window);
-        // toggleNavClass(windowObj.scrollTop());
-        windowObj.scroll(function (event) {
-            var scroll = windowObj.scrollTop();
-            toggleNavClass(scroll);
-        });
-        var navbar = $('#header').find('.navbar');
-        function toggleNavClass(position) {
-            (position >= 50) ? navbar.addClass('scrolled'): navbar.removeClass('scrolled');
-        }
+        // var windowObj = $(window);
+        // // toggleNavClass(windowObj.scrollTop());
+        // windowObj.scroll(function (event) {
+        //     var scroll = windowObj.scrollTop();
+        //     toggleNavClass(scroll);
+        // });
+        // var navbar = $('#header').find('.navbar');
+        // function toggleNavClass(position) {
+        //     (position >= 50) ? navbar.addClass('scrolled'): navbar.removeClass('scrolled');
+        // }
         </script>
 
 

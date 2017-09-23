@@ -11,27 +11,41 @@ class BusinessList extends React.Component {
         }
         let self = this;
         return (
-            <FlipMove typeName="div" duration={750} easing="ease-out" className="row">
+            <FlipMove typeName="ul" duration={750} easing="ease-out" className="results list">
 
                 {
                     items.map(function(item) {
                         var imageUrl = 'images/card-image1.jpg';
-                        // if(item.img_url) {
-                        //     imageUrl = 'img/thumbs/'+item.img_url;
-                        // }
+
                         return (
-                            <div className="col-sm-12 col-md-3" key={item.id}>
-                                <div className="card">
-                                    <img className="card-img-top" src={imageUrl} alt="card-image-cap"/>
-                                    <div className="card-block">
-                                        <h4 className="card-title">{item.name}</h4>
-                                        <p className="card-text">{item.address}</p>
-                                        <a href="javascript:void(0)" className="btn btn-success pill ripple-cont" onClick={self.openNav.bind(this)}>
-                                            <div className="ripple-content">Detail</div><div className="ink-content"></div>
-                                        </a>
+                            <li key={item.id}>
+                                <div className="item">
+                                    <a href="#" className="image loaded">
+                                        <div className="inner">
+                                            <div className="item-specific"></div>
+                                            <img src={imageUrl} alt="" />
+                                        </div>
+                                    </a>
+                                    <div className="wrapper">
+                                        <a href="#"><h3>{item.name}</h3></a>                                        
+                                        <div className="info">
+                                            <div className="type">
+                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
+                                                <span>Medical Store</span>
+                                            </div>
+                                            <div className="rating" data-rating="4">
+                                                <span className="stars">
+                                                    <i className="fa fa-star s1 active" data-score="1"></i>
+                                                    <i className="fa fa-star s2 active" data-score="2"></i>
+                                                    <i className="fa fa-star s3 active" data-score="3"></i>
+                                                    <i className="fa fa-star s4 active" data-score="4"></i>
+                                                    <i className="fa fa-star s5" data-score="5"></i>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </li>
                         )
                     })
                 }

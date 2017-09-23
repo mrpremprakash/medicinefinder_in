@@ -4,7 +4,7 @@ import Footer from './footer';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import BusinessList from '../components/business_list';
-import {searchBusiness} from '../actions/actions';
+import {searchBusiness, searchBusinessById} from '../actions/actions';
 
 class Home extends React.Component {
     render() {
@@ -15,113 +15,16 @@ class Home extends React.Component {
             			<div className="row" style={{backgroundColor: '#f4f4f2'}}>
 
             				<div className="col-lg-4 col-md-4 map-canvas">
-                                <div className="mCustomScrollbar items-list " style={{height: '500px'}}>
+                                <div className="mCustomScrollbar items-list " style={{height: '503px'}}>
                                     <div className="inner">
                                         <header>
                                             <h3>Results</h3>
                                         </header>
-                                        <ul className="results list">
-                                            <li>
-                                                <div className="item">
-                                                    <a href="#" className="image loaded">
-                                                        <div className="inner">
-                                                            <div className="item-specific"></div>
-                                                            <img src="images/card-image1.jpg" alt="" />
-                                                        </div>
-                                                    </a>
-                                                    <div className="wrapper">
-                                                        <a href="#" id="12">
-                                                            <h3>Jetstream</h3>
-                                                        </a>
-                                                        <figure>1882 Trainer Avenue</figure>
-                                                        <div className="info">
-                                                            <div className="type">
-                                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
-                                                                <span>Medical Store</span>
-                                                            </div>
-                                                            <div className="rating" data-rating="4">
-                                                                <span className="stars">
-                                                                    <i className="fa fa-star s1 active" data-score="1"></i>
-                                                                    <i className="fa fa-star s2 active" data-score="2"></i>
-                                                                    <i className="fa fa-star s3 active" data-score="3"></i>
-                                                                    <i className="fa fa-star s4 active" data-score="4"></i>
-                                                                    <i className="fa fa-star s5" data-score="5"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="item">
-                                                    <a href="#" className="image loaded">
-                                                        <div className="inner">
-                                                            <div className="item-specific"></div>
-                                                            <img src="images/card-image1.jpg" alt="" />
-                                                        </div>
-                                                    </a>
-                                                    <div className="wrapper">
-                                                        <a href="#" id="12">
-                                                            <h3>Jetstream</h3>
-                                                        </a>
-                                                        <figure>1882 Trainer Avenue</figure>
-                                                        <div className="info">
-                                                            <div className="type">
-                                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
-                                                                <span>Medical Store</span>
-                                                            </div>
-                                                            <div className="rating" data-rating="4">
-                                                                <span className="stars">
-                                                                    <i className="fa fa-star s1 active" data-score="1"></i>
-                                                                    <i className="fa fa-star s2 active" data-score="2"></i>
-                                                                    <i className="fa fa-star s3 active" data-score="3"></i>
-                                                                    <i className="fa fa-star s4 active" data-score="4"></i>
-                                                                    <i className="fa fa-star s5" data-score="5"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div className="item">
-                                                    <a href="#" className="image loaded">
-                                                        <div className="inner">
-                                                            <div className="item-specific"></div>
-                                                            <img src="images/card-image1.jpg" alt="" />
-                                                        </div>
-                                                    </a>
-                                                    <div className="wrapper">
-                                                        <a href="#" id="12">
-                                                            <h3>Jetstream</h3>
-                                                        </a>
-                                                        <figure>1882 Trainer Avenue</figure>
-                                                        <div className="info">
-                                                            <div className="type">
-                                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
-                                                                <span>Medical Store</span>
-                                                            </div>
-                                                            <div className="rating" data-rating="4">
-                                                                <span className="stars">
-                                                                    <i className="fa fa-star s1 active" data-score="1"></i>
-                                                                    <i className="fa fa-star s2 active" data-score="2"></i>
-                                                                    <i className="fa fa-star s3 active" data-score="3"></i>
-                                                                    <i className="fa fa-star s4 active" data-score="4"></i>
-                                                                    <i className="fa fa-star s5" data-score="5"></i>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
+                                        <BusinessList />
                                     </div>
                                 </div>
             				</div>
-
-
             				<div className="col-lg-8 col-md-8 map">
-
                                 <div className="search-bar">
                                     <div className="row">
                                         <div className="col-lg-12 col-md-12">
@@ -233,7 +136,7 @@ class Home extends React.Component {
             theme:"dark"
         });
         var items = this.props.business_list;
-        initMap(items);
+        this.initializeMap(items);
         var data = items.map(function(item) {
             return {
                 value: item.address,
@@ -250,6 +153,54 @@ class Home extends React.Component {
                 "Nothing selected, input was " + this.value );
             }
         });
+    }
+    initializeMap(items) {
+        var centralPoint = {lat: 28.619338, lng: 77.285691}, self = this;
+        var bounds = new google.maps.LatLngBounds(), markers = [];
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: centralPoint
+        });
+        map.addListener('dragend', function() {
+            self.getsVisibleMarkers(map, markers);
+        });
+        map.addListener('zoom_changed', function() {
+            self.getsVisibleMarkers(map, markers);
+        });
+
+        var marker = new google.maps.Marker({
+            position: centralPoint,
+            map: map
+        });
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+        for( i = 0; i < items.length; i++ ) {
+            var position = new google.maps.LatLng(items[i].latitude, items[i].longitude);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: items[i].name,
+                id: i
+            });
+            markers.push(marker);
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(items[i].address);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+    getsVisibleMarkers(map, markers) {
+        var bounds = map.getBounds(), visiblePoints = [];
+        for (var i = 0; i < markers.length; i++) {
+            var marker = markers[i];
+            if(bounds.contains(marker.getPosition()) === true) {
+                visiblePoints.push(marker.id);
+            }
+        }
+        this.props.dispatch(searchBusinessById(visiblePoints));
+        console.log(visiblePoints);
     }
 }
 

@@ -672,7 +672,7 @@ a.scroll-up:focus { -moz-transform: scale(1.1, 1.1); -ms-transform: scale(1.1, 1
 }
 .map-canvas .results.list li .item .wrapper {
     display: table-cell;
-    padding: 20px;
+    padding-left: 10px;
     vertical-align: middle;
     text-align: left;
 	padding-top: 0px;
