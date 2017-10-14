@@ -6,8 +6,8 @@ class TopNav extends React.Component {
         console.log(this.props);
         return (
             <header id="header">
-        		<nav className="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        			<div className="container">
+        		<nav className="navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled" role="navigation">
+        			<div className="container-fluid">
         				<div className="navbar-header">
         					<button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         						<span className="icon-bar"></span>
@@ -21,15 +21,15 @@ class TopNav extends React.Component {
 
         				<div className="navigation navbar-collapse collapse">
         					<ul className="nav navbar-nav menu-right">
-        						<li className="active"><Link to={window.basePath}>Home</Link></li>
-        						<li><Link to={window.basePath+'intro'}>Intro</Link></li>
-        						<li><Link to={window.basePath+'portfolio'}>Portfolio</Link></li>
-        						<li><Link to={window.basePath+'features'}>Features</Link></li>
-        						<li><Link to={window.basePath+'faq'}>FAQ</Link></li>
+        						<li id="home"><Link to={window.basePath}>Home</Link></li>
+        						<li id="intro"><Link to={window.basePath+'intro'}>Intro</Link></li>
+        						<li id="portfolio"><Link to={window.basePath+'portfolio'}>Portfolio</Link></li>
+        						<li id="features"><Link to={window.basePath+'features'}>Features</Link></li>
+        						<li id="faq"><Link to={window.basePath+'faq'}>FAQ</Link></li>
                                 {
                                     this.getAddNewLink()
                                 }
-                                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">Login</a></li>
+                                {/* <li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">Login</a></li> */}
         					</ul>
         				</div>
         			</div>
@@ -39,12 +39,13 @@ class TopNav extends React.Component {
     }
 
     getAddNewLink() {
+        return null;
         let {user_detail} = this.props;
         if(user_detail && user_detail.user_id) {
             return <li><Link to={window.basePath+'add_new'}>Add New</Link></li>
         }
     }
-    
+
 }
 
 const mapStateToProps = (state) => {

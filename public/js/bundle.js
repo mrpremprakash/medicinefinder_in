@@ -2761,35 +2761,9 @@ var Footer = function (_React$Component) {
                                         " ",
                                         _react2.default.createElement(
                                             "a",
-                                            { href: "#" },
+                                            { href: "https://www.facebook.com/medicinefinder.in/?ref=nf" },
                                             " ",
                                             _react2.default.createElement("i", { className: "fa fa-facebook" }),
-                                            " "
-                                        ),
-                                        " "
-                                    ),
-                                    _react2.default.createElement(
-                                        "li",
-                                        { className: "twitter" },
-                                        " ",
-                                        _react2.default.createElement(
-                                            "a",
-                                            { href: "#" },
-                                            " ",
-                                            _react2.default.createElement("i", { className: "fa fa-twitter" }),
-                                            " "
-                                        ),
-                                        " "
-                                    ),
-                                    _react2.default.createElement(
-                                        "li",
-                                        { className: "google-plus" },
-                                        " ",
-                                        _react2.default.createElement(
-                                            "a",
-                                            { href: "#" },
-                                            " ",
-                                            _react2.default.createElement("i", { className: "fa fa-google-plus" }),
                                             " "
                                         ),
                                         " "
@@ -2800,22 +2774,9 @@ var Footer = function (_React$Component) {
                                         " ",
                                         _react2.default.createElement(
                                             "a",
-                                            { href: "#" },
+                                            { href: "https://www.linkedin.com/company/medicinefinder.in" },
                                             " ",
                                             _react2.default.createElement("i", { className: "fa fa-linkedin" }),
-                                            " "
-                                        ),
-                                        " "
-                                    ),
-                                    _react2.default.createElement(
-                                        "li",
-                                        { className: "youtube" },
-                                        " ",
-                                        _react2.default.createElement(
-                                            "a",
-                                            { href: "#" },
-                                            " ",
-                                            _react2.default.createElement("i", { className: "fa fa-youtube-play" }),
                                             " "
                                         ),
                                         " "
@@ -17937,7 +17898,7 @@ var FAQ = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+            heightlightMainMenu('faq');
         }
     }]);
 
@@ -18468,7 +18429,7 @@ var Features = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            $("#header").find('.navbar').addClass('scroll-fixed-navbar scrolled');
+            heightlightMainMenu('features');
         }
     }]);
 
@@ -18538,7 +18499,7 @@ var Home = function (_React$Component) {
                     { id: 'home', className: 'section' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'container' },
+                        { className: 'container-fluid' },
                         _react2.default.createElement(
                             'div',
                             { className: 'row', style: { backgroundColor: '#f4f4f2' } },
@@ -18572,10 +18533,10 @@ var Home = function (_React$Component) {
                                     { className: 'search-bar' },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'row' },
+                                        { className: '' },
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'col-lg-12 col-md-12' },
+                                            { className: '' },
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'form-group' },
@@ -18590,7 +18551,11 @@ var Home = function (_React$Component) {
                                 _react2.default.createElement('div', { id: 'map', style: { height: '500px', width: '100%' } })
                             )
                         ),
-                        _react2.default.createElement('hr', null),
+                        _react2.default.createElement('hr', null)
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'container' },
                         _react2.default.createElement(
                             'div',
                             { className: 'row' },
@@ -18759,7 +18724,7 @@ var Home = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            $("#header").find('.navbar').addClass('navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled');
+            heightlightMainMenu('home');
             $(".mCustomScrollbar").mCustomScrollbar({
                 theme: "dark"
             });
@@ -19118,7 +19083,8 @@ var Intro = function (_React$Component) {
             }, {
                         key: 'componentDidMount',
                         value: function componentDidMount() {
-                                    $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+                                    // $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+                                    heightlightMainMenu('intro');
                         }
             }]);
 
@@ -19525,7 +19491,7 @@ var Portfolio = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+            heightlightMainMenu('portfolio');
         }
     }]);
 
@@ -19581,10 +19547,10 @@ var TopNav = function (_React$Component) {
                 { id: 'header' },
                 _react2.default.createElement(
                     'nav',
-                    { className: 'navbar navbar-inverse navbar-fixed-top', role: 'navigation' },
+                    { className: 'navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled', role: 'navigation' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'container' },
+                        { className: 'container-fluid' },
                         _react2.default.createElement(
                             'div',
                             { className: 'navbar-header' },
@@ -19610,7 +19576,7 @@ var TopNav = function (_React$Component) {
                                 { className: 'nav navbar-nav menu-right' },
                                 _react2.default.createElement(
                                     'li',
-                                    { className: 'active' },
+                                    { id: 'home' },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: window.basePath },
@@ -19619,7 +19585,7 @@ var TopNav = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'li',
-                                    null,
+                                    { id: 'intro' },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: window.basePath + 'intro' },
@@ -19628,7 +19594,7 @@ var TopNav = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'li',
-                                    null,
+                                    { id: 'portfolio' },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: window.basePath + 'portfolio' },
@@ -19637,7 +19603,7 @@ var TopNav = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'li',
-                                    null,
+                                    { id: 'features' },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: window.basePath + 'features' },
@@ -19646,23 +19612,14 @@ var TopNav = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'li',
-                                    null,
+                                    { id: 'faq' },
                                     _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { to: window.basePath + 'faq' },
                                         'FAQ'
                                     )
                                 ),
-                                this.getAddNewLink(),
-                                _react2.default.createElement(
-                                    'li',
-                                    null,
-                                    _react2.default.createElement(
-                                        'a',
-                                        { href: 'javascript:void(0)', 'data-toggle': 'modal', 'data-target': '#myModal' },
-                                        'Login'
-                                    )
-                                )
+                                this.getAddNewLink()
                             )
                         )
                     )
@@ -19672,6 +19629,7 @@ var TopNav = function (_React$Component) {
     }, {
         key: 'getAddNewLink',
         value: function getAddNewLink() {
+            return null;
             var user_detail = this.props.user_detail;
 
             if (user_detail && user_detail.user_id) {

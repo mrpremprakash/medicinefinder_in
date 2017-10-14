@@ -192,7 +192,7 @@ class Features extends React.Component {
         )
     }
     componentDidMount() {
-        $("#header").find('.navbar').addClass('scroll-fixed-navbar scrolled');
+        heightlightMainMenu('features');
     }
 }
 

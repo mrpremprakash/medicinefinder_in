@@ -11,7 +11,7 @@ class Home extends React.Component {
         return (
             <span>
                 <section id="home" className="section">
-            		<div className="container">
+            		<div className="container-fluid">
             			<div className="row" style={{backgroundColor: '#f4f4f2'}}>
 
             				<div className="col-lg-4 col-md-4 map-canvas">
@@ -26,8 +26,8 @@ class Home extends React.Component {
             				</div>
             				<div className="col-lg-8 col-md-8 map">
                                 <div className="search-bar">
-                                    <div className="row">
-                                        <div className="col-lg-12 col-md-12">
+                                    <div className="">
+                                        <div className="">
                                             <div className="form-group">
                                                 <input type="text" className="form-control" id="keyword" ref="keyword" placeholder="Enter Keyword"
                                                     onKeyPress={(e) => {this.searchOnKeypress.call(this, e)}}/>
@@ -51,12 +51,11 @@ class Home extends React.Component {
 
             					<div id="map" style={{height: '500px', width: '100%'}}></div>
             				</div>
-
             			</div>
-
             			<hr />
-
-            			<div className="row">
+            		</div>
+                    <div className="container">
+                        <div className="row">
             				<div className="col-lg-6 col-md-6">
             					<img src="img/imac-mockup.png" className="img-responsive" alt="" title="" />
             				</div>
@@ -114,7 +113,7 @@ class Home extends React.Component {
             					</div>
             				</div>
             			</div>
-            		</div>
+                    </div>
             	</section>
                 <Footer />
             </span>
@@ -131,7 +130,7 @@ class Home extends React.Component {
         this.props.dispatch(searchBusiness(searchTerm));
     }
     componentDidMount() {
-        $("#header").find('.navbar').addClass('navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled');
+        heightlightMainMenu('home');
         $(".mCustomScrollbar").mCustomScrollbar({
             theme:"dark"
         });

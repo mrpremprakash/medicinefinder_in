@@ -99,59 +99,21 @@ $("#user_profile").dropzone({
         });
     }
 });
-// var markers = [];
-// function initMap(items) {
-//     var uluru = {lat: 28.619338, lng: 77.285691};
-//     var bounds = new google.maps.LatLngBounds();
-//     map = new google.maps.Map(document.getElementById('map'), {
-//         zoom: 18,
-//         center: uluru
-//     });
-//     map.addListener('dragend', function() {
-//         showVisibleMarkers();
-//     });
-//     map.addListener('zoom_changed', function() {
-//         showVisibleMarkers();
-//     });
-//
-//     var marker = new google.maps.Marker({
-//         position: uluru,
-//         map: map
-//     });
-//     var infoWindow = new google.maps.InfoWindow(), marker, i;
-//     for( i = 0; i < items.length; i++ ) {
-//         var position = new google.maps.LatLng(items[i].latitude, items[i].longitude);
-//         bounds.extend(position);
-//         marker = new google.maps.Marker({
-//             position: position,
-//             map: map,
-//             title: items[i].name,
-//             id: items[i].id
-//         });
-//         markers.push(marker);
-//         // Allow each marker to have an info window
-//         google.maps.event.addListener(marker, 'click', (function(marker, i) {
-//             return function() {
-//                 infoWindow.setContent(items[i].address);
-//                 infoWindow.open(map, marker);
-//             }
-//         })(marker, i));
-//
-//         // Automatically center the map fitting all markers on the screen
-//         // map.fitBounds(bounds);
-//     }
-// }
-// function showVisibleMarkers() {
-//     var bounds = map.getBounds(),
-//         count = 0;
-//
-//     for (var i = 0; i < markers.length; i++) {
-//         var marker = markers[i];
-//         if(bounds.contains(marker.getPosition())===true) {
-//             console.log(marker.id);
-//             count++;
-//         }
-//     }
-//
-//     console.log(count);
-// }
+function setHeight() {
+    var header_height = $("#header .navbar").outerHeight();
+    var window_height = $(window).outerHeight();
+
+    var map_height = window_height - header_height;
+    $('.map-canvas .items-list').height(map_height);
+    $("#map").height(map_height);
+}
+function heightlightMainMenu(id) {
+    var menu_container = $('.menu-right');
+    menu_container.find('li').removeClass('active');
+    menu_container.find('#'+id).addClass('active');
+    scrollToTop();
+}
+function scrollToTop() {
+    var body = $("html, body");
+    body.stop().animate({scrollTop:0}, 500, 'swing');
+}
