@@ -19,11 +19,11 @@ class Footer extends React.Component {
         					<div className="social">
         						<h4>Follow us</h4>
         						<ul className="social">
-        							<li className="facebook"> <a href="#"> <i className="fa fa-facebook"></i> </a> </li>
-        							<li className="twitter"> <a href="#"> <i className="fa fa-twitter"></i> </a> </li>
-        							<li className="google-plus"> <a href="#"> <i className="fa fa-google-plus"></i> </a> </li>
-        							<li className="linkedin"> <a href="#"> <i className="fa fa-linkedin"></i> </a> </li>
-        							<li className="youtube"> <a href="#"> <i className="fa fa-youtube-play"></i> </a> </li>
+        							<li className="facebook"> <a href="https://www.facebook.com/medicinefinder.in/?ref=nf"> <i className="fa fa-facebook"></i> </a> </li>
+        							{/* <li className="twitter"> <a href="#"> <i className="fa fa-twitter"></i> </a> </li> */}
+        							{/* <li className="google-plus"> <a href="#"> <i className="fa fa-google-plus"></i> </a> </li> */}
+        							<li className="linkedin"> <a href="https://www.linkedin.com/company/medicinefinder.in"> <i className="fa fa-linkedin"></i> </a> </li>
+        							{/* <li className="youtube"> <a href="#"> <i className="fa fa-youtube-play"></i> </a> </li> */}
         						</ul>
         					</div>
         				</div>

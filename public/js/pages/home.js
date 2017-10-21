@@ -1,116 +1,123 @@
 import React from 'react';
+import Footer from './footer';
+
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import Footer from './footer';
 import BusinessList from '../components/business_list';
-import {searchBusiness} from '../actions/actions';
+import {searchBusiness, searchBusinessById} from '../actions/actions';
 
 class Home extends React.Component {
     render() {
         return (
             <span>
-                <div id="banner">
-            		<div className="banner-inner">
-            			<div className="container">
-            				<div className="row">
-            					<div className="col-md-8 header-text">
-            						<h1>Save your <strong>Time</strong>, search <strong>Online</strong> </h1>
-            						<p>No more running from one chemist store to another when in need of medicines! MedicineFinder.in helps you find your medicine and the medical store on the spot. Some of the features are listed below.
-            						</p>
-            						<div className="row">
+                <section id="home" className="section">
+            		<div className="container-fluid">
+            			<div className="row" style={{backgroundColor: '#f4f4f2'}}>
+
+            				<div className="col-lg-4 col-md-4 map-canvas">
+                                <div className="mCustomScrollbar items-list " style={{height: '503px'}}>
+                                    <div className="inner">
+                                        <header>
+                                            <h3>Results</h3>
+                                        </header>
+                                        <BusinessList />
+                                    </div>
+                                </div>
+            				</div>
+            				<div className="col-lg-8 col-md-8 map">
+                                <div className="search-bar">
+                                    <div className="">
+                                        <div className="">
+                                            <div className="form-group">
+                                                <input type="text" className="form-control" id="keyword" ref="keyword" placeholder="Enter Keyword"
+                                                    onKeyPress={(e) => {this.searchOnKeypress.call(this, e)}}/>
+                                            </div>
+                                        </div>
+                                        {/* <div className="col-lg-6 col-md-6">
+                                            <div className="form-group">
+                                                <div className="input-group location">
+                                                    <input type="text" className="form-control" id="location" placeholder="Enter Location" autoComplete="off"/>
+                                                    <span className="input-group-addon">
+                                                        <i className="fa fa-map-marker geolocation" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Find my position"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="form-group">
+                                                <button type="submit" className="btn btn-default"><i className="fa fa-search"></i></button>
+                                            </div>
+                                        </div> */}
+                                    </div>
+                                </div>
+
+            					<div id="map" style={{height: '500px', width: '100%'}}></div>
+            				</div>
+            			</div>
+            			<hr />
+            		</div>
+                    <div className="container">
+                        <div className="row">
+            				<div className="col-lg-6 col-md-6">
+            					<img src="img/imac-mockup.png" className="img-responsive" alt="" title="" />
+            				</div>
+            				<div className="col-lg-6 col-md-6">
+            					<h2>Do not waste time searching medicine or medical stores manually.</h2>
+            					<p>All of us need to visit medicine stores in search of some medicine now and then. When we start looking for some medicine it is hard to find near by medicine stores and it is harder to know in which store that medicine is available. Somethimes we keep moving from one drug store to another in search of the medicine and we waste lots of our time. </p>
+            					<ul className="normal-list">
+            						<li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+            						<li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            						<li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,</li>
+            					</ul>
+            					<p></p>
+            				</div>
+            			</div>
+
+
+            			<div className="divider50"></div>
+
+            			<div className="row">
+            				<div className="col-lg-4 col-md-4 hidden-xs">
+
+            					<div className="side-text text-center">
+            						<i className="fa fa-phone fa-4x"></i>
+            						<h4>Need More Assistance</h4>
+            						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            					</div>
+
+            				</div>
+            				<div className="col-lg-8 col-md-8">
+            					<div className="row">
+            						<div className="highlight">
+
             							<div className="col-lg-6 col-md-6 col-sm-6">
             								<ul className="green-arrow">
-            									<li>Find drug stores near by you by searching medicine name</li>
-            									<li>Compare drug prices with different stores</li>
-            									<li>Get route map to reach nearest store</li>
-            									<li>Prescription Management*</li>
-
+            									<li>Many addon features</li>
+            									<li>Fully responsive &amp; adaptive</li>
+            									<li>SEO optimized</li>
+            									<li>Attractive with a modern touch</li>
+            									<li>Full Support</li>
             								</ul>
             							</div>
+
             							<div className="col-lg-6 col-md-6 col-sm-6">
             								<ul className="green-arrow">
-            									<li>Get notification when your medicines are in stock again</li>
-            									<li>Real time price &amp; stock information</li>
-            									<li>Get store contact information if you need</li>
-            									<li>Manage your historical medical records*</li>
-
+            									<li>Many addon features</li>
+            									<li>Fully responsive &amp; adaptive</li>
+            									<li>SEO optimized</li>
+            									<li>Attractive with a modern touch</li>
+            									<li>Full Support</li>
             								</ul>
             							</div>
+
             							<div className="clearfix"></div>
             						</div>
             					</div>
-
-            					<div className="col-lg-4 col-md-4">
-            						<img src="img/inclined.png" className="img-responsive" alt="" title="MedicineFinder.in app screen" />
-            					</div>
-
-            				</div>
-            				{/* <div className="divider50"></div>
-        					<div className="banner-optin">
-        						<div className="row">
-        							<div className="form-group col-md-9">
-        								<input name="medicine_name" type="text"
-                                            ref="medicine_name" className="form-control medicine_name auto-complete ui-autocomplete-input"
-                                            required="" placeholder="Enter location..." autoComplete="off"
-                                            onKeyPress={(e) => {this.searchOnKeypress.call(this, e)}}/>
-        							</div>
-
-        							<div className="form-group col-md-3">
-        								<button type="button" className="btn btn-primary show-map" data-toggle="modal" onClick={this.findStore.bind(this)}>
-        								   Find Store
-        								</button>
-        							</div>
-        						</div>
-        					</div>
-        					<div className="row">
-        						<div className="col-md-12">
-        							<div className="form-process"></div>
-        						</div>
-        					</div> */}
-            			</div>
-            		</div>
-                </div>
-
-                <section className="bg-grey home-section section">
-            		<div className="container">
-                        <div className="row">
-            				<div className="col-lg-12">
-            					{/* <div className="headline">
-            						<h1>Business List</h1>
-            					</div> */}
-                                <div className="input-group">
-                                    <div className="input-group-btn search-panel">
-                                        <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                            <span id="search_concept">Search by address</span> <span className="caret"></span>
-                                        </button>
-                                        <ul className="dropdown-menu" role="menu">
-                                            <li><a href="#its_equal">Search by address</a></li>
-                                            <li><a href="#contains">Search by name</a></li>
-                                            <li><a href="#greather_than">Search by medicine</a></li>
-                                            <li><a href="#less_than">Less than &lt; </a></li>
-                                            {/* <li className="divider"></li>
-                                            <li><a href="#all">Anything</a></li> */}
-                                        </ul>
-                                    </div>
-                                    <input type="hidden" name="search_param" value="all" id="search_param"/>
-                                    <input type="text" className="form-control" name="medicine_name" ref="medicine_name" placeholder="New Delhi..."
-                                        onKeyPress={(e) => {this.searchOnKeypress.call(this, e)}}/>
-                                    <span className="input-group-btn">
-                                        <button className="btn btn-default" type="button" onClick={this.findStore.bind(this)}>
-                                            <span className="glyphicon glyphicon-search"></span>
-                                        </button>
-                                    </span>
-                                </div>
-
             				</div>
             			</div>
-            			<div className="divider35"></div>
-                        <BusinessList/>
                     </div>
-                </section>
+            	</section>
                 <Footer />
             </span>
-        )
+        );
     }
     searchOnKeypress(event) {
         if(event.which == 13) {
@@ -119,16 +126,16 @@ class Home extends React.Component {
         }
     }
     findStore() {
-        $('html, body').animate({
-            scrollTop: ($( 'input[name="medicine_name"]').offset().top) - 100
-        }, 1000);
-        let searchTerm = this.refs.medicine_name.value;
+        let searchTerm = this.refs.keyword.value;
         this.props.dispatch(searchBusiness(searchTerm));
     }
     componentDidMount() {
+        heightlightMainMenu('home');
+        $(".mCustomScrollbar").mCustomScrollbar({
+            theme:"dark"
+        });
         var items = this.props.business_list;
-        $("#header").find('.navbar').removeClass('scroll-fixed-navbar');
-
+        this.initializeMap(items);
         var data = items.map(function(item) {
             return {
                 value: item.address,
@@ -136,7 +143,7 @@ class Home extends React.Component {
             }
         });
 
-        $( 'input[name="medicine_name"]').autocomplete({
+        $( '#keyword').autocomplete({
             source: data,
             minLength: 0,
             select: function( event, ui ) {
@@ -145,9 +152,57 @@ class Home extends React.Component {
                 "Nothing selected, input was " + this.value );
             }
         });
+    }
+    initializeMap(items) {
+        var centralPoint = {lat: 28.619338, lng: 77.285691}, self = this;
+        var bounds = new google.maps.LatLngBounds(), markers = [];
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 18,
+            center: centralPoint
+        });
+        map.addListener('dragend', function() {
+            self.getsVisibleMarkers(map, markers);
+        });
+        map.addListener('zoom_changed', function() {
+            self.getsVisibleMarkers(map, markers);
+        });
 
+        var marker = new google.maps.Marker({
+            position: centralPoint,
+            map: map
+        });
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+        for( i = 0; i < items.length; i++ ) {
+            var position = new google.maps.LatLng(items[i].latitude, items[i].longitude);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: items[i].name,
+                id: i
+            });
+            markers.push(marker);
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(items[i].address);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+        }
+    }
+    getsVisibleMarkers(map, markers) {
+        var bounds = map.getBounds(), visiblePoints = [];
+        for (var i = 0; i < markers.length; i++) {
+            var marker = markers[i];
+            if(bounds.contains(marker.getPosition()) === true) {
+                visiblePoints.push(marker.id);
+            }
+        }
+        this.props.dispatch(searchBusinessById(visiblePoints));
+        console.log(visiblePoints);
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         items: state.get('items'),

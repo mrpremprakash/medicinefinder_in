@@ -33,14 +33,17 @@
         ul.ui-autocomplete.ui-menu {z-index: 99999;}
         </style>
         <!-- Libs CSS -->
-        <link href="css/jquery-ui.css" rel="stylesheet">
-        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="{{ URL::asset('css/jquery-ui.css') }}" rel="stylesheet">
+        <link href="{{ URL::asset('css/bootstrap.css') }}" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
         <!-- -->
+        <link rel="stylesheet" href="{{ URL::asset('css/owl-carousel/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ URL::asset('css/owl-carousel/owl.theme.default.min.css') }}">
 
         <!-- Template CSS -->
-        <link href="css/style.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/imgareaselect-default.css" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+        <link rel="stylesheet" type="text/css" type="text/css" href="{{ URL::asset('css/imgareaselect-default.css') }}" />
+        <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/jquery.mCustomScrollbar.css') }}" />
         <!-- Google Fonts -->
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,800&amp;subsetting=all' rel='stylesheet' type='text/css'>
@@ -50,11 +53,14 @@
         <script src="./js/html5shiv.js"></script>
         <script src="./js/respond.js"></script>
         <![endif]-->
-        <script src="js/jquery-2.1.0.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/jquery.imgareaselect.pack.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/jquery-2.1.0.min.js') }}"></script>
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/jquery.imgareaselect.pack.js') }}"></script>
+        <script type="text/javascript" src="{{ URL::asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ldYnc5GNWesH52Uee3-7uKP0mX6OBAs"></script>
 
+        <script src="{{ URL::asset('js/owl-carousel/owl.carousel.min.js') }}"></script>
 
         <style>
         .ui-autocomplete {
@@ -83,12 +89,8 @@
         }
         </style>
     </head>
-
     <body>
-        <div id="mySidenav" class="sidenav5 bg-grey" style="width: 0;">
-          <a href="javascript:void(0)" class="closebtn" onclick="closeNav4()">×</a>
-          <div>Under Construction...</div>
-        </div>
+        
         <div id="app"></div>
         <script>
             window.__PRELOADED_STATE__ = {
@@ -98,23 +100,24 @@
                     last_name: 'Prakash'
                 },
                 business_list: $.parseJSON(JSON.stringify(<?php echo json_encode($records) ?>)),
-                items: $.parseJSON(JSON.stringify(<?php echo json_encode($records) ?>))
+                items: $.parseJSON(JSON.stringify(<?php echo json_encode($records) ?>)),
+                business_detail: $.parseJSON(JSON.stringify(<?php echo (empty($business_detail)) ? json_encode(array()) : json_encode($business_detail);?>))
             };
         </script>
-        <script src="js/bundle.js"></script>
-        <script src="js/dropzone.js"></script>
-        <script src="js/common.js"></script>
+        <script src="{{ URL::asset('js/dropzone.js') }}"></script>
+        <script src="{{ URL::asset('js/common.js') }}"></script>
+        <script src="{{ URL::asset('js/bundle.js') }}"></script>
         <script>
-        var windowObj = $(window);
-        // toggleNavClass(windowObj.scrollTop());
-        windowObj.scroll(function (event) {
-            var scroll = windowObj.scrollTop();
-            toggleNavClass(scroll);
-        });
-        var navbar = $('#header').find('.navbar');
-        function toggleNavClass(position) {
-            (position >= 50) ? navbar.addClass('scrolled'): navbar.removeClass('scrolled');
-        }
+        // var windowObj = $(window);
+        // // toggleNavClass(windowObj.scrollTop());
+        // windowObj.scroll(function (event) {
+        //     var scroll = windowObj.scrollTop();
+        //     toggleNavClass(scroll);
+        // });
+        // var navbar = $('#header').find('.navbar');
+        // function toggleNavClass(position) {
+        //     (position >= 50) ? navbar.addClass('scrolled'): navbar.removeClass('scrolled');
+        // }
         </script>
 
 

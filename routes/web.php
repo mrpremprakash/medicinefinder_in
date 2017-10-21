@@ -31,3 +31,4 @@ Route::get('/faq', 'BusinessController@show');
 Route::get('/add_new', 'BusinessController@show');
 Route::post('/upload_profile', 'BusinessController@uploadProfile');
 // Route::post('/', 'BusinessController@save');
+Route::get('/store/{slug}', 'BusinessController@showBusinessDetail');

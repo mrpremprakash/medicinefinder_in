@@ -103,7 +103,8 @@ class Intro extends React.Component {
         );
     }
     componentDidMount() {
-        $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+        // $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+        heightlightMainMenu('intro');
     }
 }
 

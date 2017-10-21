@@ -99,3 +99,21 @@ $("#user_profile").dropzone({
         });
     }
 });
+function setHeight() {
+    var header_height = $("#header .navbar").outerHeight();
+    var window_height = $(window).outerHeight();
+
+    var map_height = window_height - header_height;
+    $('.map-canvas .items-list').height(map_height);
+    $("#map").height(map_height);
+}
+function heightlightMainMenu(id) {
+    var menu_container = $('.menu-right');
+    menu_container.find('li').removeClass('active');
+    menu_container.find('#'+id).addClass('active');
+    scrollToTop();
+}
+function scrollToTop() {
+    var body = $("html, body");
+    body.stop().animate({scrollTop:0}, 500, 'swing');
+}

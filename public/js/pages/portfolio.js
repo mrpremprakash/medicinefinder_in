@@ -50,7 +50,7 @@ class Portfolio extends React.Component {
         )
     }
     componentDidMount() {
-        $("#header").find('.navbar').addClass('scroll-fixed-navbar');
+        heightlightMainMenu('portfolio');
     }
 }
 export default Portfolio;
