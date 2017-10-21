@@ -57,7 +57,7 @@ class Home extends React.Component {
                     <div className="container">
                         <div className="row">
             				<div className="col-lg-6 col-md-6">
-            					<img src="img/imac-mockup.png" className="img-responsive" alt="" title="" />
+            					<img src="public/img/imac-mockup.png" className="img-responsive" alt="" title="" />
             				</div>
             				<div className="col-lg-6 col-md-6">
             					<h2>Do not waste time searching medicine or medical stores manually.</h2>
@@ -130,6 +130,7 @@ class Home extends React.Component {
         this.props.dispatch(searchBusiness(searchTerm));
     }
     componentDidMount() {
+        console.log(this.props);
         heightlightMainMenu('home');
         $(".mCustomScrollbar").mCustomScrollbar({
             theme:"dark"

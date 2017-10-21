@@ -39,7 +39,12 @@ class BusinessController extends Controller
     }
     public function showBusinessDetail($slug) {
         $business_detail = Business::get()->where('slug', $slug)->first()->toArray();
-        $business_detail['images'] = array('../images/common/1.jpg');
+        $business_detail['images'] = array('images/common/1.jpg');
+        if($business_detail['img_url']) {
+            $img_url = 'images/'.$business_detail['id'].'/';
+            $business_detail['images'] = array($img_url.$business_detail['img_url']);
+        }
+
         $business_detail['description'] = 'Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa, viverra interdum eros ut, imperdiet pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis. Curabitur suscipit, justo eu dignissim lacinia, ante sapien pharetra duin consectetur eros augue sed ex. Donec a odio rutrum, hendrerit sapien vitae, euismod arcu. Suspendisse potenti. Integer ut diam venenatis, pellentesque felis eget, elementum enim. Suspendisse sit amet massa commodo nulla iaculis fermentum. Integer eget tincidunt est, in imperdiet risus. Morbi sit amet urna purus.';
         if(!empty($_GET['type']) && $_GET['type'] == 'json') {
             echo json_encode($business_detail);

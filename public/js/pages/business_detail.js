@@ -6,6 +6,7 @@ export default class BusinessDetail extends React.Component {
         this.state = {}
     }
     render() {
+        var imagePath = window.imagePath;
         if(!this.state.business_detail) {
             return <div>Loading...</div>;
         }
@@ -24,12 +25,6 @@ export default class BusinessDetail extends React.Component {
                                                 <h1>{business.name}</h1>
                                                 <figure>{business.address1}</figure>
                                             </div>
-                                            {/* <div className="info">
-                                                <div className="type">
-                                                    <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i>
-                                                    <span>Restaurant</span>
-                                                </div>
-                                            </div> */}
                                         </header>
                                         <div className="row">
                                             <aside className="col-md-4 col-sm-4" id="detail-sidebar">
@@ -102,7 +97,7 @@ export default class BusinessDetail extends React.Component {
                                                         <div className="owl-carousel">
                                                             {
                                                                 business.images.map((item, index) => {
-                                                                    return <div key={index}> <img src={item} /></div>
+                                                                    return <div key={index}> <img src={imagePath+'public/'+item} /></div>
                                                                 })
                                                             }
                                                         </div>
@@ -150,7 +145,7 @@ export default class BusinessDetail extends React.Component {
                                                     <section className="reviews">
                                                         <article className="review">
                                                             <figure className="author">
-                                                                <img src="../img/default-avatar.png" alt=""/>
+                                                                <img src={imagePath+"public/img/default-avatar.png"} alt=""/>
                                                                 <div className="date">12.05.2014</div>
                                                             </figure>
                                                             <div className="wrapper">
@@ -198,7 +193,7 @@ export default class BusinessDetail extends React.Component {
                                                         </article>
                                                         <article className="review">
                                                             <figure className="author">
-                                                                <img src="assets/img/default-avatar.png" alt=""/>
+                                                                <img src={imagePath+"assets/img/default-avatar.png"} alt=""/>
                                                                 <div className="date">10.05.2014</div>
                                                             </figure>
                                                             <div className="wrapper">
@@ -309,10 +304,10 @@ export default class BusinessDetail extends React.Component {
                                                 <h3>Ganesh Medical Store</h3>
                                                 <figure>Una Enclave, Patparganj</figure>
                                                 <div className="wrapper">
-                                                    <div className="image"><img src="../images/2/1.jpg" alt=""/></div>
+                                                    <div className="image"><img src={imagePath+"public/images/2/1.jpg"} alt=""/></div>
                                                     <div className="info">
                                                         <div className="type">
-                                                            <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i>
+                                                            {/* <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i> */}
                                                             <span>Medical Store</span>
                                                         </div>
                                                         <div className="rating" data-rating="4">
@@ -331,10 +326,10 @@ export default class BusinessDetail extends React.Component {
                                                 <h3>Lovely Medicos</h3>
                                                 <figure>Karkardooma, Anand Vihar</figure>
                                                 <div className="wrapper">
-                                                    <div className="image"><img src="../images/2/2.jpg" alt=""/></div>
+                                                    <div className="image"><img src={imagePath+"public/images/2/2.jpg"} alt=""/></div>
                                                     <div className="info">
                                                         <div className="type">
-                                                            <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i>
+                                                            {/* <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i> */}
                                                             <span>Medical Store</span>
                                                         </div>
                                                         <div className="rating" data-rating="3">
@@ -353,10 +348,10 @@ export default class BusinessDetail extends React.Component {
                                                 <h3>Sai Raj Chemist</h3>
                                                 <figure>Near karkardooma Metro Station</figure>
                                                 <div className="wrapper">
-                                                    <div className="image"><img src="../images/2/1.jpg" alt=""/></div>
+                                                    <div className="image"><img src={imagePath+"public/images/2/1.jpg"} alt=""/></div>
                                                     <div className="info">
                                                         <div className="type">
-                                                            <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i>
+                                                            {/* <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""/></i> */}
                                                             <span>Medical Store</span>
                                                         </div>
                                                         <div className="rating" data-rating="5">
@@ -373,7 +368,7 @@ export default class BusinessDetail extends React.Component {
                                             </Link>
                                         </section>
                                         <section>
-                                            <a href="#"><img src="../img/ad-banner-sidebar.png" alt=""/></a>
+                                            <a href="#"><img src={imagePath+"public/img/ad-banner-sidebar.png"} alt=""/></a>
                                         </section>
                                         <section>
                                             <header><h2>Mode Of Payment</h2></header>

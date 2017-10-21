@@ -16,7 +16,7 @@ class Intro extends React.Component {
             					</div>
             					<div className="main-point">
             						<i className="fa">
-            							<img src="img/icon_route.jpg" width="80px" />
+            							<img src="public/img/icon_route.jpg" width="80px" />
             						</i>
             						<h4>Map Based</h4>
             						<p>See the exact path and distance of all the stores on the map from your location and route to reach there.</p>
@@ -31,7 +31,7 @@ class Intro extends React.Component {
 
 
             				<div className="col-lg-6 col-md-6">
-            					<img src="img/devices.jpg" className="img-responsive" alt="" title="" />
+            					<img src="public/img/devices.jpg" className="img-responsive" alt="" title="" />
             				</div>
 
             			</div>
@@ -40,7 +40,7 @@ class Intro extends React.Component {
 
             			<div className="row">
             				<div className="col-lg-6 col-md-6">
-            					<img src="img/imac-mockup.png" className="img-responsive" alt="" title="" />
+            					<img src="public/img/imac-mockup.png" className="img-responsive" alt="" title="" />
             				</div>
             				<div className="col-lg-6 col-md-6">
             					<h2>Do not waste time searching medicine or medical stores manually.</h2>
