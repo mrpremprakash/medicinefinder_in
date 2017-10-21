@@ -11,8 +11,8 @@ import AddNew from './add_new';
 import LoginRegister from './login';
 import BusinessDetail from './business_detail';
 
-// let basePath = '/medicinefinder.in/';
-let basePath = '/';
+let basePath = '/medicinefinder.in/';
+// let basePath = '/';
 window.basePath = basePath;
 window.imagePath = window.location.origin+basePath;
 
