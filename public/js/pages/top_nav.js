@@ -2,8 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 class TopNav extends React.Component {
-    render() {
-        console.log(this.props);
+    render() {        
         return (
             <header id="header">
         		<nav className="navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled" role="navigation">

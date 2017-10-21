@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import FlipMove from 'react-flip-move';
-
+import {Link} from 'react-router-dom';
 class BusinessList extends React.Component {
     render() {
         let {items} = this.props;
@@ -16,18 +16,18 @@ class BusinessList extends React.Component {
                 {
                     items.map(function(item) {
                         var imageUrl = 'images/card-image1.jpg';
-
+                        var business_detail_url = 'store/'+item.slug;
                         return (
                             <li key={item.id}>
                                 <div className="item">
-                                    <a href="#" className="image loaded">
+                                    <a href="javascript:void(0);" className="image">
                                         <div className="inner">
                                             <div className="item-specific"></div>
                                             <img src={imageUrl} alt="" />
                                         </div>
                                     </a>
-                                    <div className="wrapper">
-                                        <a href="#"><h3>{item.name}</h3></a>                                        
+                                    <div className="wrapper">                                        
+                                        <Link to={window.basePath+business_detail_url}><h3>{item.name}</h3></Link>
                                         <div className="info">
                                             <div className="type">
                                                 <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>

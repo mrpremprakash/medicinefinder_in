@@ -9,6 +9,7 @@ import Features from './features';
 import FAQ from './faq';
 import AddNew from './add_new';
 import LoginRegister from './login';
+import BusinessDetail from './business_detail';
 
 let basePath = '/medicinefinder.in/public/';
 
@@ -27,6 +28,7 @@ class App extends React.Component {
                         <Route path={basePath+'features'} component={Features}/>
                         <Route path={basePath+'faq'} component={FAQ}/>
                         <Route path={basePath+'add_new'} component={AddNew}/>
+                        <Route path={basePath+'store/:slug'} component={BusinessDetail}/>
                     </Switch>
                 </main>
 
