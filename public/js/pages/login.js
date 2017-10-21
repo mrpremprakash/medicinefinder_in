@@ -67,7 +67,7 @@ class LoginRegister extends React.Component {
                                 									</div>
                                                                 </div>
                                                                 <div className="col-md-4">
-                                                                    <img id="user_profile" src="public/img/profile_icon.jpg" style={{marginTop: '-10px'}}/>
+                                                                    <img id="user_profile" src={window.imagePath+"public/img/profile_icon.jpg"} style={{marginTop: '-10px'}}/>
                                                                 </div>
                                                             </div>
                         									<div className="form-group">

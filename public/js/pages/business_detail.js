@@ -193,7 +193,7 @@ export default class BusinessDetail extends React.Component {
                                                         </article>
                                                         <article className="review">
                                                             <figure className="author">
-                                                                <img src={imagePath+"assets/img/default-avatar.png"} alt=""/>
+                                                                <img src={imagePath+"public/img/default-avatar.png"} alt=""/>
                                                                 <div className="date">10.05.2014</div>
                                                             </figure>
                                                             <div className="wrapper">

@@ -12194,8 +12194,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var basePath = '/medicinefinder.in/';
-// let basePath = '';
+// let basePath = '/medicinefinder.in/';
+var basePath = '/';
 window.basePath = basePath;
 window.imagePath = window.location.origin + basePath;
 
@@ -18158,7 +18158,7 @@ var BusinessDetail = function (_React$Component) {
                                                             _react2.default.createElement(
                                                                 'figure',
                                                                 { className: 'author' },
-                                                                _react2.default.createElement('img', { src: imagePath + "assets/img/default-avatar.png", alt: '' }),
+                                                                _react2.default.createElement('img', { src: imagePath + "public/img/default-avatar.png", alt: '' }),
                                                                 _react2.default.createElement(
                                                                     'div',
                                                                     { className: 'date' },
@@ -18888,7 +18888,7 @@ var FAQ = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'col-lg-5 col-md-5' },
-                                _react2.default.createElement('img', { src: 'public/img/mobile2.png', className: 'img-responsive', alt: '', title: '' })
+                                _react2.default.createElement('img', { src: window.imagePath + "public/img/mobile2.png", className: 'img-responsive', alt: '', title: '' })
                             )
                         )
                     )
@@ -19122,7 +19122,7 @@ var Features = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'col-lg-4 col-md-4' },
-                                _react2.default.createElement('img', { src: 'public/img/mobile.png', className: 'img-responsive', alt: '', title: '' })
+                                _react2.default.createElement('img', { src: window.imagePath + "public/img/mobile.png", className: 'img-responsive', alt: '', title: '' })
                             )
                         )
                     )
@@ -20273,7 +20273,7 @@ var LoginRegister = function (_React$Component) {
                                                                     _react2.default.createElement(
                                                                         "div",
                                                                         { className: "col-md-4" },
-                                                                        _react2.default.createElement("img", { id: "user_profile", src: "public/img/profile_icon.jpg", style: { marginTop: '-10px' } })
+                                                                        _react2.default.createElement("img", { id: "user_profile", src: window.imagePath + "public/img/profile_icon.jpg", style: { marginTop: '-10px' } })
                                                                     )
                                                                 ),
                                                                 _react2.default.createElement(
