@@ -11,6 +11,7 @@ let storeData = Immutable.Map(window.__PRELOADED_STATE__);
 delete window.__PRELOADED_STATE__;
 const store = createStore(Reducer, storeData);
 
+
 ReactDOM.render((
     <Provider store={store}>
         <BrowserRouter>
