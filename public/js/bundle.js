@@ -20519,7 +20519,16 @@ var TopNav = function (_React$Component) {
                                         'FAQ'
                                     )
                                 ),
-                                this.getAddNewLink()
+                                this.getAddNewLink(),
+                                _react2.default.createElement(
+                                    'li',
+                                    null,
+                                    _react2.default.createElement(
+                                        'a',
+                                        { href: 'javascript:void(0)', 'data-toggle': 'modal', 'data-target': '#myModal' },
+                                        'Login'
+                                    )
+                                )
                             )
                         )
                     )

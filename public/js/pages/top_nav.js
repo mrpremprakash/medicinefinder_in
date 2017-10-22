@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 class TopNav extends React.Component {
-    render() {        
+    render() {
         return (
             <header id="header">
         		<nav className="navbar navbar-inverse navbar-fixed-top scroll-fixed-navbar scrolled" role="navigation">
@@ -28,7 +28,7 @@ class TopNav extends React.Component {
                                 {
                                     this.getAddNewLink()
                                 }
-                                {/* <li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">Login</a></li> */}
+                                <li><a href="javascript:void(0)" data-toggle="modal" data-target="#myModal">Login</a></li>
         					</ul>
         				</div>
         			</div>
