@@ -17335,7 +17335,11 @@ var BusinessList = function (_React$Component) {
             var items = this.props.items;
 
             if (items.length == 0) {
-                return null;
+                return _react2.default.createElement(
+                    'p',
+                    { className: 'text-danger' },
+                    'There is no record to display.'
+                );
             }
             var self = this;
             return _react2.default.createElement(
@@ -19553,156 +19557,6 @@ var Home = function (_React$Component) {
                             )
                         ),
                         _react2.default.createElement('hr', null)
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'container' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-6 col-md-6' },
-                                _react2.default.createElement('img', { src: 'public/img/imac-mockup.png', className: 'img-responsive', alt: '', title: '' })
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-6 col-md-6' },
-                                _react2.default.createElement(
-                                    'h2',
-                                    null,
-                                    'Do not waste time searching medicine or medical stores manually.'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'All of us need to visit medicine stores in search of some medicine now and then. When we start looking for some medicine it is hard to find near by medicine stores and it is harder to know in which store that medicine is available. Somethimes we keep moving from one drug store to another in search of the medicine and we waste lots of our time. '
-                                ),
-                                _react2.default.createElement(
-                                    'ul',
-                                    { className: 'normal-list' },
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-                                    ),
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                    ),
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,'
-                                    )
-                                ),
-                                _react2.default.createElement('p', null)
-                            )
-                        ),
-                        _react2.default.createElement('div', { className: 'divider50' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-4 col-md-4 hidden-xs' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'side-text text-center' },
-                                    _react2.default.createElement('i', { className: 'fa fa-phone fa-4x' }),
-                                    _react2.default.createElement(
-                                        'h4',
-                                        null,
-                                        'Need More Assistance'
-                                    ),
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-8 col-md-8' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'highlight' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'col-lg-6 col-md-6 col-sm-6' },
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'green-arrow' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Many addon features'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Fully responsive & adaptive'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'SEO optimized'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Attractive with a modern touch'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Full Support'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'col-lg-6 col-md-6 col-sm-6' },
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'green-arrow' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Many addon features'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Fully responsive & adaptive'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'SEO optimized'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Attractive with a modern touch'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Full Support'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('div', { className: 'clearfix' })
-                                    )
-                                )
-                            )
-                        )
                     )
                 ),
                 _react2.default.createElement(_footer2.default, null)
@@ -19725,7 +19579,6 @@ var Home = function (_React$Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log(this.props);
             heightlightMainMenu('home');
             $(".mCustomScrollbar").mCustomScrollbar({
                 theme: "dark"
@@ -19746,6 +19599,7 @@ var Home = function (_React$Component) {
                     console.log(ui.item ? "Selected: " + ui.item.value + ", geonameId: " + ui.item.id : "Nothing selected, input was " + this.value);
                 }
             });
+            setHeight();
         }
     }, {
         key: 'initializeMap',
@@ -19784,11 +19638,56 @@ var Home = function (_React$Component) {
                 markers.push(marker);
                 google.maps.event.addListener(marker, 'click', function (marker, i) {
                     return function () {
-                        infoWindow.setContent(items[i].address);
+                        // infoWindow.setContent(items[i].address);
+                        infoWindow.setContent(self.getMarkerBusinessTemplate(items[i]));
                         infoWindow.open(map, marker);
                     };
                 }(marker, i));
             }
+        }
+    }, {
+        key: 'getMarkerBusinessTemplate',
+        value: function getMarkerBusinessTemplate(item) {
+            return _react2.default.createElement(
+                'div',
+                { className: 'fade-in-marker' },
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'infobox ' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'inner' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'image' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: 'javascript:void(0)', className: 'description' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'meta' },
+                                        _react2.default.createElement(
+                                            'h2',
+                                            null,
+                                            item.name
+                                        ),
+                                        _react2.default.createElement(
+                                            'figure',
+                                            null,
+                                            item.address1
+                                        ),
+                                        _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+                                    )
+                                ),
+                                _react2.default.createElement('img', { src: 'public/images/card-image1.jpg' })
+                            )
+                        )
+                    )
+                )
+            );
         }
     }, {
         key: 'getsVisibleMarkers',

@@ -7,7 +7,7 @@ class BusinessList extends React.Component {
     render() {
         let {items} = this.props;
         if(items.length == 0) {
-            return null;
+            return <p className="text-danger">There is no record to display.</p>;
         }
         let self = this;
         return (
