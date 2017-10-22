@@ -67,7 +67,7 @@ class Features extends React.Component {
             					</div>
             				</div>
             				<div className="col-lg-4 col-md-4">
-            					<img src="img/mobile.png" className="img-responsive" alt="" title="" />
+            					<img src={window.imagePath+"public/img/mobile.png"} className="img-responsive" alt="" title="" />
             				</div>
             			</div>
 
@@ -132,7 +132,7 @@ class Features extends React.Component {
             								<div className="row">
             									<div className="col-lg-12">
             										<div className="testimonial-inner">
-            											<img src="img/testi1.png" alt="" title=""/>
+            											<img src="public/img/testi1.png" alt="" title=""/>
             											<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
             											<small>Someone famous</small>
             										</div>
@@ -143,7 +143,7 @@ class Features extends React.Component {
             								<div className="row">
             									<div className="col-lg-12">
             										<div className="testimonial-inner">
-            											<img src="img/testi2.png" alt="" title=""/>
+            											<img src="public/img/testi2.png" alt="" title=""/>
             											<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
             											<small>Someone famous</small>
             										</div>
@@ -154,7 +154,7 @@ class Features extends React.Component {
             								<div className="row">
             									<div className="col-lg-12">
             										<div className="testimonial-inner">
-            											<img src="img/testi3.png" alt="" title=""/>
+            											<img src="public/img/testi3.png" alt="" title=""/>
             											<p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit!</p>
             											<small>Someone famous</small>
             										</div>
@@ -177,12 +177,12 @@ class Features extends React.Component {
             		<div className="container">
             			<div className="row">
         					<ul className="partners-logo">
-        						<li className="col-md-2 col-sm-2"><a href="#"><img src="img/logo1.png" alt="" title=""/></a></li>
-        						<li className="col-md-2 col-sm-2"><a href="#"><img src="img/logo2.png" alt="" title=""/></a></li>
-        						<li className="col-md-2 col-sm-2"><a href="#"><img src="img/logo3.png" alt="" title=""/></a></li>
-        						<li className="col-md-2 col-sm-2"><a href="#"><img src="img/logo4.png" alt="" title=""/></a></li>
-        						<li className="col-md-2 col-sm-2"><a href="#"><img src="img/logo1.png" alt="" title=""/></a></li>
-        						<li className="col-md-2 col-sm-2"><a href="#"><img src="img/logo2.png" alt="" title=""/></a></li>
+        						<li className="col-md-2 col-sm-2"><a href="#"><img src="public/img/logo1.png" alt="" title=""/></a></li>
+        						<li className="col-md-2 col-sm-2"><a href="#"><img src="public/img/logo2.png" alt="" title=""/></a></li>
+        						<li className="col-md-2 col-sm-2"><a href="#"><img src="public/img/logo3.png" alt="" title=""/></a></li>
+        						<li className="col-md-2 col-sm-2"><a href="#"><img src="public/img/logo4.png" alt="" title=""/></a></li>
+        						<li className="col-md-2 col-sm-2"><a href="#"><img src="public/img/logo1.png" alt="" title=""/></a></li>
+        						<li className="col-md-2 col-sm-2"><a href="#"><img src="public/img/logo2.png" alt="" title=""/></a></li>
         					</ul>
             			</div>
             		</div>

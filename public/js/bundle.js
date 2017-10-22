@@ -12194,9 +12194,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var basePath = '/medicinefinder.in/public/';
-
+var basePath = '/medicinefinder.in/';
+// let basePath = '/';
 window.basePath = basePath;
+window.imagePath = window.location.origin + basePath;
 
 var App = function (_React$Component) {
     _inherits(App, _React$Component);
@@ -12221,13 +12222,13 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         _reactRouterDom.Switch,
                         null,
-                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: basePath, component: _home2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'intro', component: _intro2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'portfolio', component: _portfolio2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'features', component: _features2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'faq', component: _faq2.default }),
                         _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'add_new', component: _add_new2.default }),
-                        _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'store/:slug', component: _business_detail2.default })
+                        _react2.default.createElement(_reactRouterDom.Route, { path: basePath + 'store/:slug', component: _business_detail2.default }),
+                        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: basePath, component: _home2.default })
                     )
                 )
             );
@@ -17334,14 +17335,18 @@ var BusinessList = function (_React$Component) {
             var items = this.props.items;
 
             if (items.length == 0) {
-                return null;
+                return _react2.default.createElement(
+                    'p',
+                    { className: 'text-danger' },
+                    'There is no record to display.'
+                );
             }
             var self = this;
             return _react2.default.createElement(
                 _reactFlipMove2.default,
                 { typeName: 'ul', duration: 750, easing: 'ease-out', className: 'results list' },
                 items.map(function (item) {
-                    var imageUrl = 'images/card-image1.jpg';
+                    var imageUrl = 'public/images/card-image1.jpg';
                     var business_detail_url = 'store/' + item.slug;
                     return _react2.default.createElement(
                         'li',
@@ -17380,7 +17385,7 @@ var BusinessList = function (_React$Component) {
                                         _react2.default.createElement(
                                             'i',
                                             null,
-                                            _react2.default.createElement('img', { src: 'img/store.png', alt: '', className: 'mCS_img_loaded' })
+                                            _react2.default.createElement('img', { src: 'public/img/store.png', alt: '', className: 'mCS_img_loaded' })
                                         ),
                                         _react2.default.createElement(
                                             'span',
@@ -17697,6 +17702,7 @@ var BusinessDetail = function (_React$Component) {
     _createClass(BusinessDetail, [{
         key: 'render',
         value: function render() {
+            var imagePath = window.imagePath;
             if (!this.state.business_detail) {
                 return _react2.default.createElement(
                     'div',
@@ -17921,7 +17927,7 @@ var BusinessDetail = function (_React$Component) {
                                                                     'div',
                                                                     { key: index },
                                                                     ' ',
-                                                                    _react2.default.createElement('img', { src: item })
+                                                                    _react2.default.createElement('img', { src: imagePath + 'public/' + item })
                                                                 );
                                                             })
                                                         )
@@ -18071,7 +18077,7 @@ var BusinessDetail = function (_React$Component) {
                                                             _react2.default.createElement(
                                                                 'figure',
                                                                 { className: 'author' },
-                                                                _react2.default.createElement('img', { src: '../img/default-avatar.png', alt: '' }),
+                                                                _react2.default.createElement('img', { src: imagePath + "public/img/default-avatar.png", alt: '' }),
                                                                 _react2.default.createElement(
                                                                     'div',
                                                                     { className: 'date' },
@@ -18156,7 +18162,7 @@ var BusinessDetail = function (_React$Component) {
                                                             _react2.default.createElement(
                                                                 'figure',
                                                                 { className: 'author' },
-                                                                _react2.default.createElement('img', { src: 'assets/img/default-avatar.png', alt: '' }),
+                                                                _react2.default.createElement('img', { src: imagePath + "public/img/default-avatar.png", alt: '' }),
                                                                 _react2.default.createElement(
                                                                     'div',
                                                                     { className: 'date' },
@@ -18392,7 +18398,7 @@ var BusinessDetail = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'image' },
-                                                        _react2.default.createElement('img', { src: '../images/2/1.jpg', alt: '' })
+                                                        _react2.default.createElement('img', { src: imagePath + "public/images/2/1.jpg", alt: '' })
                                                     ),
                                                     _react2.default.createElement(
                                                         'div',
@@ -18400,11 +18406,6 @@ var BusinessDetail = function (_React$Component) {
                                                         _react2.default.createElement(
                                                             'div',
                                                             { className: 'type' },
-                                                            _react2.default.createElement(
-                                                                'i',
-                                                                null,
-                                                                _react2.default.createElement('img', { src: 'assets/icons/restaurants-bars/restaurants/restaurant.png', alt: '' })
-                                                            ),
                                                             _react2.default.createElement(
                                                                 'span',
                                                                 null,
@@ -18446,7 +18447,7 @@ var BusinessDetail = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'image' },
-                                                        _react2.default.createElement('img', { src: '../images/2/2.jpg', alt: '' })
+                                                        _react2.default.createElement('img', { src: imagePath + "public/images/2/2.jpg", alt: '' })
                                                     ),
                                                     _react2.default.createElement(
                                                         'div',
@@ -18454,11 +18455,6 @@ var BusinessDetail = function (_React$Component) {
                                                         _react2.default.createElement(
                                                             'div',
                                                             { className: 'type' },
-                                                            _react2.default.createElement(
-                                                                'i',
-                                                                null,
-                                                                _react2.default.createElement('img', { src: 'assets/icons/restaurants-bars/restaurants/restaurant.png', alt: '' })
-                                                            ),
                                                             _react2.default.createElement(
                                                                 'span',
                                                                 null,
@@ -18500,7 +18496,7 @@ var BusinessDetail = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'image' },
-                                                        _react2.default.createElement('img', { src: '../images/2/1.jpg', alt: '' })
+                                                        _react2.default.createElement('img', { src: imagePath + "public/images/2/1.jpg", alt: '' })
                                                     ),
                                                     _react2.default.createElement(
                                                         'div',
@@ -18508,11 +18504,6 @@ var BusinessDetail = function (_React$Component) {
                                                         _react2.default.createElement(
                                                             'div',
                                                             { className: 'type' },
-                                                            _react2.default.createElement(
-                                                                'i',
-                                                                null,
-                                                                _react2.default.createElement('img', { src: 'assets/icons/restaurants-bars/restaurants/restaurant.png', alt: '' })
-                                                            ),
                                                             _react2.default.createElement(
                                                                 'span',
                                                                 null,
@@ -18542,7 +18533,7 @@ var BusinessDetail = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'a',
                                                 { href: '#' },
-                                                _react2.default.createElement('img', { src: '../img/ad-banner-sidebar.png', alt: '' })
+                                                _react2.default.createElement('img', { src: imagePath + "public/img/ad-banner-sidebar.png", alt: '' })
                                             )
                                         ),
                                         _react2.default.createElement(
@@ -18901,7 +18892,7 @@ var FAQ = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'col-lg-5 col-md-5' },
-                                _react2.default.createElement('img', { src: 'img/mobile2.png', className: 'img-responsive', alt: '', title: '' })
+                                _react2.default.createElement('img', { src: window.imagePath + "public/img/mobile2.png", className: 'img-responsive', alt: '', title: '' })
                             )
                         )
                     )
@@ -19135,7 +19126,7 @@ var Features = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'col-lg-4 col-md-4' },
-                                _react2.default.createElement('img', { src: 'img/mobile.png', className: 'img-responsive', alt: '', title: '' })
+                                _react2.default.createElement('img', { src: window.imagePath + "public/img/mobile.png", className: 'img-responsive', alt: '', title: '' })
                             )
                         )
                     )
@@ -19285,7 +19276,7 @@ var Features = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'testimonial-inner' },
-                                                        _react2.default.createElement('img', { src: 'img/testi1.png', alt: '', title: '' }),
+                                                        _react2.default.createElement('img', { src: 'public/img/testi1.png', alt: '', title: '' }),
                                                         _react2.default.createElement(
                                                             'p',
                                                             null,
@@ -19312,7 +19303,7 @@ var Features = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'testimonial-inner' },
-                                                        _react2.default.createElement('img', { src: 'img/testi2.png', alt: '', title: '' }),
+                                                        _react2.default.createElement('img', { src: 'public/img/testi2.png', alt: '', title: '' }),
                                                         _react2.default.createElement(
                                                             'p',
                                                             null,
@@ -19339,7 +19330,7 @@ var Features = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'testimonial-inner' },
-                                                        _react2.default.createElement('img', { src: 'img/testi3.png', alt: '', title: '' }),
+                                                        _react2.default.createElement('img', { src: 'public/img/testi3.png', alt: '', title: '' }),
                                                         _react2.default.createElement(
                                                             'p',
                                                             null,
@@ -19385,7 +19376,7 @@ var Features = function (_React$Component) {
                                     _react2.default.createElement(
                                         'a',
                                         { href: '#' },
-                                        _react2.default.createElement('img', { src: 'img/logo1.png', alt: '', title: '' })
+                                        _react2.default.createElement('img', { src: 'public/img/logo1.png', alt: '', title: '' })
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -19394,7 +19385,7 @@ var Features = function (_React$Component) {
                                     _react2.default.createElement(
                                         'a',
                                         { href: '#' },
-                                        _react2.default.createElement('img', { src: 'img/logo2.png', alt: '', title: '' })
+                                        _react2.default.createElement('img', { src: 'public/img/logo2.png', alt: '', title: '' })
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -19403,7 +19394,7 @@ var Features = function (_React$Component) {
                                     _react2.default.createElement(
                                         'a',
                                         { href: '#' },
-                                        _react2.default.createElement('img', { src: 'img/logo3.png', alt: '', title: '' })
+                                        _react2.default.createElement('img', { src: 'public/img/logo3.png', alt: '', title: '' })
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -19412,7 +19403,7 @@ var Features = function (_React$Component) {
                                     _react2.default.createElement(
                                         'a',
                                         { href: '#' },
-                                        _react2.default.createElement('img', { src: 'img/logo4.png', alt: '', title: '' })
+                                        _react2.default.createElement('img', { src: 'public/img/logo4.png', alt: '', title: '' })
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -19421,7 +19412,7 @@ var Features = function (_React$Component) {
                                     _react2.default.createElement(
                                         'a',
                                         { href: '#' },
-                                        _react2.default.createElement('img', { src: 'img/logo1.png', alt: '', title: '' })
+                                        _react2.default.createElement('img', { src: 'public/img/logo1.png', alt: '', title: '' })
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -19430,7 +19421,7 @@ var Features = function (_React$Component) {
                                     _react2.default.createElement(
                                         'a',
                                         { href: '#' },
-                                        _react2.default.createElement('img', { src: 'img/logo2.png', alt: '', title: '' })
+                                        _react2.default.createElement('img', { src: 'public/img/logo2.png', alt: '', title: '' })
                                     )
                                 )
                             )
@@ -19566,156 +19557,6 @@ var Home = function (_React$Component) {
                             )
                         ),
                         _react2.default.createElement('hr', null)
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'container' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-6 col-md-6' },
-                                _react2.default.createElement('img', { src: 'img/imac-mockup.png', className: 'img-responsive', alt: '', title: '' })
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-6 col-md-6' },
-                                _react2.default.createElement(
-                                    'h2',
-                                    null,
-                                    'Do not waste time searching medicine or medical stores manually.'
-                                ),
-                                _react2.default.createElement(
-                                    'p',
-                                    null,
-                                    'All of us need to visit medicine stores in search of some medicine now and then. When we start looking for some medicine it is hard to find near by medicine stores and it is harder to know in which store that medicine is available. Somethimes we keep moving from one drug store to another in search of the medicine and we waste lots of our time. '
-                                ),
-                                _react2.default.createElement(
-                                    'ul',
-                                    { className: 'normal-list' },
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-                                    ),
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                    ),
-                                    _react2.default.createElement(
-                                        'li',
-                                        null,
-                                        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut,'
-                                    )
-                                ),
-                                _react2.default.createElement('p', null)
-                            )
-                        ),
-                        _react2.default.createElement('div', { className: 'divider50' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'row' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-4 col-md-4 hidden-xs' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'side-text text-center' },
-                                    _react2.default.createElement('i', { className: 'fa fa-phone fa-4x' }),
-                                    _react2.default.createElement(
-                                        'h4',
-                                        null,
-                                        'Need More Assistance'
-                                    ),
-                                    _react2.default.createElement(
-                                        'p',
-                                        null,
-                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'col-lg-8 col-md-8' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'row' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'highlight' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'col-lg-6 col-md-6 col-sm-6' },
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'green-arrow' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Many addon features'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Fully responsive & adaptive'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'SEO optimized'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Attractive with a modern touch'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Full Support'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'col-lg-6 col-md-6 col-sm-6' },
-                                            _react2.default.createElement(
-                                                'ul',
-                                                { className: 'green-arrow' },
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Many addon features'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Fully responsive & adaptive'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'SEO optimized'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Attractive with a modern touch'
-                                                ),
-                                                _react2.default.createElement(
-                                                    'li',
-                                                    null,
-                                                    'Full Support'
-                                                )
-                                            )
-                                        ),
-                                        _react2.default.createElement('div', { className: 'clearfix' })
-                                    )
-                                )
-                            )
-                        )
                     )
                 ),
                 _react2.default.createElement(_footer2.default, null)
@@ -19758,6 +19599,7 @@ var Home = function (_React$Component) {
                     console.log(ui.item ? "Selected: " + ui.item.value + ", geonameId: " + ui.item.id : "Nothing selected, input was " + this.value);
                 }
             });
+            setHeight();
         }
     }, {
         key: 'initializeMap',
@@ -19796,11 +19638,56 @@ var Home = function (_React$Component) {
                 markers.push(marker);
                 google.maps.event.addListener(marker, 'click', function (marker, i) {
                     return function () {
-                        infoWindow.setContent(items[i].address);
+                        // infoWindow.setContent(items[i].address);
+                        infoWindow.setContent(self.getMarkerBusinessTemplate(items[i]));
                         infoWindow.open(map, marker);
                     };
                 }(marker, i));
             }
+        }
+    }, {
+        key: 'getMarkerBusinessTemplate',
+        value: function getMarkerBusinessTemplate(item) {
+            return _react2.default.createElement(
+                'div',
+                { className: 'fade-in-marker' },
+                _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'infobox ' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'inner' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'image' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: 'javascript:void(0)', className: 'description' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'meta' },
+                                        _react2.default.createElement(
+                                            'h2',
+                                            null,
+                                            item.name
+                                        ),
+                                        _react2.default.createElement(
+                                            'figure',
+                                            null,
+                                            item.address1
+                                        ),
+                                        _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+                                    )
+                                ),
+                                _react2.default.createElement('img', { src: 'public/images/card-image1.jpg' })
+                            )
+                        )
+                    )
+                )
+            );
         }
     }, {
         key: 'getsVisibleMarkers',
@@ -19907,7 +19794,7 @@ var Intro = function (_React$Component) {
                                                                                                             _react2.default.createElement(
                                                                                                                         'i',
                                                                                                                         { className: 'fa' },
-                                                                                                                        _react2.default.createElement('img', { src: 'img/icon_route.jpg', width: '80px' })
+                                                                                                                        _react2.default.createElement('img', { src: 'public/img/icon_route.jpg', width: '80px' })
                                                                                                             ),
                                                                                                             _react2.default.createElement(
                                                                                                                         'h4',
@@ -19939,7 +19826,7 @@ var Intro = function (_React$Component) {
                                                                                     _react2.default.createElement(
                                                                                                 'div',
                                                                                                 { className: 'col-lg-6 col-md-6' },
-                                                                                                _react2.default.createElement('img', { src: 'img/devices.jpg', className: 'img-responsive', alt: '', title: '' })
+                                                                                                _react2.default.createElement('img', { src: 'public/img/devices.jpg', className: 'img-responsive', alt: '', title: '' })
                                                                                     )
                                                                         ),
                                                                         _react2.default.createElement('hr', null),
@@ -19949,7 +19836,7 @@ var Intro = function (_React$Component) {
                                                                                     _react2.default.createElement(
                                                                                                 'div',
                                                                                                 { className: 'col-lg-6 col-md-6' },
-                                                                                                _react2.default.createElement('img', { src: 'img/imac-mockup.png', className: 'img-responsive', alt: '', title: '' })
+                                                                                                _react2.default.createElement('img', { src: 'public/img/imac-mockup.png', className: 'img-responsive', alt: '', title: '' })
                                                                                     ),
                                                                                     _react2.default.createElement(
                                                                                                 'div',
@@ -20285,7 +20172,7 @@ var LoginRegister = function (_React$Component) {
                                                                     _react2.default.createElement(
                                                                         "div",
                                                                         { className: "col-md-4" },
-                                                                        _react2.default.createElement("img", { id: "user_profile", src: "img/profile_icon.jpg", style: { marginTop: '-10px' } })
+                                                                        _react2.default.createElement("img", { id: "user_profile", src: window.imagePath + "public/img/profile_icon.jpg", style: { marginTop: '-10px' } })
                                                                     )
                                                                 ),
                                                                 _react2.default.createElement(
@@ -20429,7 +20316,7 @@ var Portfolio = function (_React$Component) {
         var _this = _possibleConstructorReturn(this, (Portfolio.__proto__ || Object.getPrototypeOf(Portfolio)).call(this));
 
         _this.state = {
-            stores: [{ src: 'img/thumbs/bhandari-dispensary-pandav-nagar-delhi-0.jpg', alt: 'Bhandari Dispensary Pandav Nagar Delhi', href: 'drug-store/bhandari-dispensary-shop-no-52-main-market-opposite-mother-dairy-pandav-nagar-new-delhi-delhi-110092', title: 'Bhandari Dispensary Pandav Nagar Delhi' }, { src: 'img/thumbs/prem-medical-store-laxmi-nagar-delhi.jpg', alt: 'Prem Medical Store Laxmi Nagar Delhi', href: 'drug-store/prem-medical-store-shop-no4&5-near-walia-nursing-home-main-vikas-marg-laxmi-nagar-delhi-110092', title: 'Prem Medical Store Laxmi Nagar Delhi' }, { src: 'img/thumbs/lovely-medicos-karkardooma-delhi.jpg', alt: 'Lovely Medicos Karkardooma Delhi', href: 'drug-store/lovely-medicos-g215-saini-enclave-manish-chamber-commercial-complex-karkardooma-anand-vihar-delhi-110092', title: 'Lovely Medicos Karkardooma Delhi' }, { src: 'img/thumbs/new-sidhartha-chemists-pahar-ganj-delhi.jpg', alt: 'New Sidhartha Chemists Pahar Ganj Delhi', href: 'drug-store/new-sidhartha-chemist-delhi', title: 'New Sidhartha Chemists Pahar Ganj Delhi' }]
+            stores: [{ src: 'public/img/thumbs/bhandari-dispensary-pandav-nagar-delhi-0.jpg', alt: 'Bhandari Dispensary Pandav Nagar Delhi', href: 'drug-store/bhandari-dispensary-shop-no-52-main-market-opposite-mother-dairy-pandav-nagar-new-delhi-delhi-110092', title: 'Bhandari Dispensary Pandav Nagar Delhi' }, { src: 'public/img/thumbs/prem-medical-store-laxmi-nagar-delhi.jpg', alt: 'Prem Medical Store Laxmi Nagar Delhi', href: 'drug-store/prem-medical-store-shop-no4&5-near-walia-nursing-home-main-vikas-marg-laxmi-nagar-delhi-110092', title: 'Prem Medical Store Laxmi Nagar Delhi' }, { src: 'public/img/thumbs/lovely-medicos-karkardooma-delhi.jpg', alt: 'Lovely Medicos Karkardooma Delhi', href: 'drug-store/lovely-medicos-g215-saini-enclave-manish-chamber-commercial-complex-karkardooma-anand-vihar-delhi-110092', title: 'Lovely Medicos Karkardooma Delhi' }, { src: 'public/img/thumbs/new-sidhartha-chemists-pahar-ganj-delhi.jpg', alt: 'New Sidhartha Chemists Pahar Ganj Delhi', href: 'drug-store/new-sidhartha-chemist-delhi', title: 'New Sidhartha Chemists Pahar Ganj Delhi' }]
         };
         return _this;
     }

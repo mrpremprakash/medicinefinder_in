@@ -11,9 +11,11 @@ import AddNew from './add_new';
 import LoginRegister from './login';
 import BusinessDetail from './business_detail';
 
-let basePath = '/medicinefinder.in/public/';
-
+let basePath = '/medicinefinder.in/';
+// let basePath = '/';
 window.basePath = basePath;
+window.imagePath = window.location.origin+basePath;
+
 class App extends React.Component {
     render() {
         return (
@@ -22,13 +24,13 @@ class App extends React.Component {
                 <TopNav />
                 <main>
                     <Switch>
-                        <Route exact path={basePath} component={Home}/>
                         <Route path={basePath+'intro'} component={Intro}/>
                         <Route path={basePath+'portfolio'} component={Portfolio}/>
                         <Route path={basePath+'features'} component={Features}/>
                         <Route path={basePath+'faq'} component={FAQ}/>
                         <Route path={basePath+'add_new'} component={AddNew}/>
                         <Route path={basePath+'store/:slug'} component={BusinessDetail}/>
+                        <Route exact path={basePath} component={Home}/>
                     </Switch>
                 </main>
 

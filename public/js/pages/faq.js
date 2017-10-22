@@ -68,7 +68,7 @@ class FAQ extends React.Component {
             					</div>
             				</div>
             				<div className="col-lg-5 col-md-5">
-            					<img src="img/mobile2.png" className="img-responsive" alt="" title=""/>
+            					<img src={window.imagePath+"public/img/mobile2.png"} className="img-responsive" alt="" title=""/>
             				</div>
             			</div>
             		</div>

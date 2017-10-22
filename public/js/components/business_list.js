@@ -7,7 +7,7 @@ class BusinessList extends React.Component {
     render() {
         let {items} = this.props;
         if(items.length == 0) {
-            return null;
+            return <p className="text-danger">There is no record to display.</p>;
         }
         let self = this;
         return (
@@ -15,7 +15,7 @@ class BusinessList extends React.Component {
 
                 {
                     items.map(function(item) {
-                        var imageUrl = 'images/card-image1.jpg';
+                        var imageUrl = 'public/images/card-image1.jpg';
                         var business_detail_url = 'store/'+item.slug;
                         return (
                             <li key={item.id}>
@@ -26,11 +26,11 @@ class BusinessList extends React.Component {
                                             <img src={imageUrl} alt="" />
                                         </div>
                                     </a>
-                                    <div className="wrapper">                                        
+                                    <div className="wrapper">
                                         <Link to={window.basePath+business_detail_url}><h3>{item.name}</h3></Link>
                                         <div className="info">
                                             <div className="type">
-                                                <i><img src="img/store.png" alt="" className="mCS_img_loaded" /></i>
+                                                <i><img src="public/img/store.png" alt="" className="mCS_img_loaded" /></i>
                                                 <span>Medical Store</span>
                                             </div>
                                             <div className="rating" data-rating="4">

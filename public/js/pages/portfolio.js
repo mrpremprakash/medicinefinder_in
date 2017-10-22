@@ -5,10 +5,10 @@ class Portfolio extends React.Component {
         super();
         this.state = {
             stores: [
-                {src: 'img/thumbs/bhandari-dispensary-pandav-nagar-delhi-0.jpg', alt: 'Bhandari Dispensary Pandav Nagar Delhi', href: 'drug-store/bhandari-dispensary-shop-no-52-main-market-opposite-mother-dairy-pandav-nagar-new-delhi-delhi-110092', title: 'Bhandari Dispensary Pandav Nagar Delhi'},
-                {src: 'img/thumbs/prem-medical-store-laxmi-nagar-delhi.jpg', alt: 'Prem Medical Store Laxmi Nagar Delhi', href: 'drug-store/prem-medical-store-shop-no4&5-near-walia-nursing-home-main-vikas-marg-laxmi-nagar-delhi-110092', title: 'Prem Medical Store Laxmi Nagar Delhi'},
-                {src: 'img/thumbs/lovely-medicos-karkardooma-delhi.jpg', alt: 'Lovely Medicos Karkardooma Delhi', href: 'drug-store/lovely-medicos-g215-saini-enclave-manish-chamber-commercial-complex-karkardooma-anand-vihar-delhi-110092', title: 'Lovely Medicos Karkardooma Delhi'},
-                {src: 'img/thumbs/new-sidhartha-chemists-pahar-ganj-delhi.jpg', alt: 'New Sidhartha Chemists Pahar Ganj Delhi', href: 'drug-store/new-sidhartha-chemist-delhi', title: 'New Sidhartha Chemists Pahar Ganj Delhi'},
+                {src: 'public/img/thumbs/bhandari-dispensary-pandav-nagar-delhi-0.jpg', alt: 'Bhandari Dispensary Pandav Nagar Delhi', href: 'drug-store/bhandari-dispensary-shop-no-52-main-market-opposite-mother-dairy-pandav-nagar-new-delhi-delhi-110092', title: 'Bhandari Dispensary Pandav Nagar Delhi'},
+                {src: 'public/img/thumbs/prem-medical-store-laxmi-nagar-delhi.jpg', alt: 'Prem Medical Store Laxmi Nagar Delhi', href: 'drug-store/prem-medical-store-shop-no4&5-near-walia-nursing-home-main-vikas-marg-laxmi-nagar-delhi-110092', title: 'Prem Medical Store Laxmi Nagar Delhi'},
+                {src: 'public/img/thumbs/lovely-medicos-karkardooma-delhi.jpg', alt: 'Lovely Medicos Karkardooma Delhi', href: 'drug-store/lovely-medicos-g215-saini-enclave-manish-chamber-commercial-complex-karkardooma-anand-vihar-delhi-110092', title: 'Lovely Medicos Karkardooma Delhi'},
+                {src: 'public/img/thumbs/new-sidhartha-chemists-pahar-ganj-delhi.jpg', alt: 'New Sidhartha Chemists Pahar Ganj Delhi', href: 'drug-store/new-sidhartha-chemist-delhi', title: 'New Sidhartha Chemists Pahar Ganj Delhi'},
             ]
         }
     }

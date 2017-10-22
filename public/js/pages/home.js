@@ -54,10 +54,10 @@ class Home extends React.Component {
             			</div>
             			<hr />
             		</div>
-                    <div className="container">
+                    {/* <div className="container">
                         <div className="row">
             				<div className="col-lg-6 col-md-6">
-            					<img src="img/imac-mockup.png" className="img-responsive" alt="" title="" />
+            					<img src="public/img/imac-mockup.png" className="img-responsive" alt="" title="" />
             				</div>
             				<div className="col-lg-6 col-md-6">
             					<h2>Do not waste time searching medicine or medical stores manually.</h2>
@@ -113,7 +113,7 @@ class Home extends React.Component {
             					</div>
             				</div>
             			</div>
-                    </div>
+                    </div> */}
             	</section>
                 <Footer />
             </span>
@@ -152,6 +152,7 @@ class Home extends React.Component {
                 "Nothing selected, input was " + this.value );
             }
         });
+        setHeight();
     }
     initializeMap(items) {
         var centralPoint = {lat: 28.619338, lng: 77.285691}, self = this;
@@ -184,11 +185,32 @@ class Home extends React.Component {
             markers.push(marker);
             google.maps.event.addListener(marker, 'click', (function(marker, i) {
                 return function() {
-                    infoWindow.setContent(items[i].address);
+                    // infoWindow.setContent(items[i].address);
+                    infoWindow.setContent(self.getMarkerBusinessTemplate(items[i]));
                     infoWindow.open(map, marker);
                 }
             })(marker, i));
         }
+    }
+    getMarkerBusinessTemplate(item) {
+        return (<div className="fade-in-marker">
+            <div>
+                <div className="infobox ">
+                    <div className="inner">
+                        <div className="image">
+                            <a href="javascript:void(0)" className="description">
+                                <div className="meta">
+                                    <h2>{item.name}</h2>
+                                    <figure>{item.address1}</figure>
+                                    <i className="fa fa-angle-right"></i>
+                                </div>
+                            </a>
+                            <img src="public/images/card-image1.jpg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>);
     }
     getsVisibleMarkers(map, markers) {
         var bounds = map.getBounds(), visiblePoints = [];
